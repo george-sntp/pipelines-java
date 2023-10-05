@@ -9,7 +9,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -21,6 +20,10 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-script:
-    - docker login -u "admin" -p "admin9843" https://repo.gnissim.eu.ngrok.io
-    - echo "Login successful"
+jobs:
+- job: Work
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
+ #   docker login -u "admin" -p "admin9843" https://repo.gnissim.eu.ngrok.io
+ #   echo "Login successful"
