@@ -11,6 +11,8 @@ pool:
 
 steps:
 - script: echo Hello, world!
+        - docker login -u "admin" -p "admin9843" https://repo.gnissim.eu.ngrok.io
+        - echo "Login successful"
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
